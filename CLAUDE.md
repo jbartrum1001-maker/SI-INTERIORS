@@ -48,7 +48,7 @@ README.md            how the user edits text, images, colours, form
 .gitignore           excludes Image/ (the user's drop folder for source photos, not the working images/ folder)
 ```
 
-Git: a local repo exists on branch `main`, pushed to **github.com/jbartrum1001-maker/SI-INTERIORS** (public, remote `origin`). Commit and push as changes land unless the user asks to review diffs first.
+Git: a local repo exists on branch `main`, pushed to **github.com/jbartrum1001-maker/SI-INTERIORS** (public, remote `origin`). Commit locally as changes land, but **only push when the user explicitly asks** — don't push on your own initiative.
 
 ## Behaviours worth knowing
 - **Hero slideshow** (`js/main.js`): cross-fades between `.hero-slide` images every `HERO_INTERVAL` (6s) by toggling `.is-active` (opacity transition in CSS). No-op with one slide; skipped entirely under reduced motion. When testing changes to it in the browser pane, remember the stylesheet can go stale after a plain reload — bust it with a `?v=` query on the `<link>` href (or hard-restart the tab) before trusting a screenshot that looks wrong.
