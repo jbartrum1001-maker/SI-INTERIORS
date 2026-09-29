@@ -56,6 +56,19 @@
     });
   }
 
+  // Hero slideshow: cross-fade through .hero-slide images. Does nothing if there's
+  // only one slide, and skipped entirely for visitors who prefer reduced motion.
+  var slides = document.querySelectorAll('.hero-slide');
+  if (slides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var HERO_INTERVAL = 6000; // ms each slide stays on screen
+    var current = 0;
+    setInterval(function () {
+      slides[current].classList.remove('is-active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('is-active');
+    }, HERO_INTERVAL);
+  }
+
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 

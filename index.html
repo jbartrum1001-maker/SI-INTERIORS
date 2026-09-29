@@ -43,9 +43,13 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <!-- [PLACEHOLDER] LARGE HERO PHOTO of a completed job. Landscape, at least 2000x1200, WebP, under ~300KB.
-       Change src and alt only. The dark overlay is set in css/styles.css (--hero-overlay). -->
-  <img class="hero-bg" src="images/hero-sink.jpg" alt="[PLACEHOLDER: confirm location/project] IPS panelling and sink installation in a clinical washroom" fetchpriority="high">
+  <!-- [PLACEHOLDER] HERO SLIDESHOW: one or more completed-job photos, cross-fading. Landscape, at least 2000x1200, WebP/JPEG, under ~300KB each.
+       Add a slide by copying an <img class="hero-slide">; the first one needs is-active and fetchpriority="high". Timing/loop is handled by js/main.js.
+       The dark overlay is set in css/styles.css (--hero-overlay). If only one slide is present it just displays as a static image. -->
+  <div class="hero-slides">
+    <img class="hero-slide is-active" src="images/hero-sink.jpg" alt="[PLACEHOLDER: confirm location/project] IPS panelling and sink installation in a clinical washroom" fetchpriority="high">
+    <img class="hero-slide" src="images/hero-window.jpg" alt="[PLACEHOLDER: confirm location/project] Printed hygienic wall cladding beside a window">
+  </div>
   <div class="wrap hero-content">
     <p class="eyebrow">Trovex fitters, Norfolk [PLACEHOLDER: confirm area]</p>
     <h1>Specialist fitters of Trovex hygienic wall cladding and IPS panels.</h1>

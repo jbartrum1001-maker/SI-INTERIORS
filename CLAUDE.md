@@ -24,7 +24,7 @@ Likely audience (unconfirmed): main contractors, schools, NHS trusts, care homes
 
 ## Page structure (`index.html`, in order)
 1. **Header**: sticky; logo with tagline (desktop), anchor nav, phone button, mobile Menu toggle.
-2. **Hero**: full-width background photo (`.hero-bg`), dark overlay (`--hero-overlay`), centred text in front: "Specialist fitters of Trovex hygienic wall cladding and IPS panels", sector line, **Send an enquiry** (solid) and **Call** (outlined) buttons.
+2. **Hero**: full-width cross-fading slideshow (`.hero-slides` > `.hero-slide` images), dark overlay (`--hero-overlay`), centred text in front: "Specialist fitters of Trovex hygienic wall cladding and IPS panels", sector line, **Send an enquiry** (solid) and **Call** (outlined) buttons.
 3. **Logo carousel**: auto-scrolling strip directly under the hero, greyscale logos, fades out at both edges, pauses on hover.
 4. **Services**: only two: hygienic PVC wall cladding and IPS panels. Each card has an **icon slot** (inline SVG, `currentColor`), not a photo, and *What it is / Where it's used / What fitting involves*.
 5. **Projects**: 3-6 real jobs, each with photo, name, location, sector, one line on the work.
@@ -38,8 +38,8 @@ Likely audience (unconfirmed): main contractors, schools, NHS trusts, care homes
 index.html           all content
 css/styles.css       tokens at top, then base, layout, components
 js/main.js           mobile menu, logo carousel loop, footer year, form guard
-images/              hero-sink.jpg (real hero photo), placeholder.svg, hero-placeholder.svg,
-                      logo-placeholder.svg, (later) more real photos
+images/              hero-sink.jpg, hero-window.jpg (real hero slideshow photos), placeholder.svg,
+                      hero-placeholder.svg, logo-placeholder.svg, (later) more real photos
 images/projects/     project photos
 favicon.svg
 CHECKLIST.md         everything the user still has to supply
@@ -51,6 +51,7 @@ README.md            how the user edits text, images, colours, form
 Git: a local repo exists on branch `main`, pushed to **github.com/jbartrum1001-maker/SI-INTERIORS** (public, remote `origin`). Commit and push as changes land unless the user asks to review diffs first.
 
 ## Behaviours worth knowing
+- **Hero slideshow** (`js/main.js`): cross-fades between `.hero-slide` images every `HERO_INTERVAL` (6s) by toggling `.is-active` (opacity transition in CSS). No-op with one slide; skipped entirely under reduced motion. When testing changes to it in the browser pane, remember the stylesheet can go stale after a plain reload — bust it with a `?v=` query on the `<link>` href (or hard-restart the tab) before trusting a screenshot that looks wrong.
 - **Logo carousel** (`js/main.js`): clones the logo `<li>`s until the track covers the viewport plus one full set, then loops by exactly one set (`--logos-shift`) at 50px/s (`SPEED`). Rebuilds on load and resize. It measures with the `.moving` class already applied, so don't remove that before measuring. Reduced-motion and no-JS users get a static wrapping row (no fade).
 - **Form**: posts to a Formspree-style endpoint (`https://formspree.io/f/PLACEHOLDER`). Until a real endpoint is set, `main.js` blocks submission and shows "Form not connected yet". Has a `_gotcha` honeypot field.
 - **Header** on mobile must not overflow: the long placeholder phone text broke it once, so keep the header phone label short.

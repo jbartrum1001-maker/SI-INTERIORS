@@ -34,7 +34,7 @@ Rule: nothing here is invented. If it isn't confirmed, it stays a placeholder or
 - [ ] Meta description (`<head>` of index.html)
 
 ## 6. Photos (real ones only; export as WebP, about 1200-1600px wide, 3:2)
-- [x] Hero photo: `images/hero-sink.jpg` in place (2000x1200, 128KB)
+- [x] Hero slideshow photos: `images/hero-sink.jpg` and `images/hero-window.jpg` in place, cross-fading every 6s. Add more by copying a `<img class="hero-slide">` in index.html
 - [ ] Service icons for wall cladding and IPS panels (inline SVG, single colour; slots marked `[PLACEHOLDER] ICON` in the Services section)
 - [ ] Wall cladding photo
 - [ ] IPS panel photo
