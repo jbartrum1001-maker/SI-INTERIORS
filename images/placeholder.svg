@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-label="Placeholder image">
+  <rect width="900" height="600" fill="#dcdedd"/>
+  <path d="M0 0L900 600M900 0L0 600" stroke="#c4c7c6" stroke-width="2"/>
+  <text x="450" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#5a6066">[PLACEHOLDER IMAGE]</text>
+  <text x="450" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#5a6066">Replace with a real photo (3:2)</text>
+</svg>
