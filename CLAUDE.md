@@ -38,13 +38,17 @@ Likely audience (unconfirmed): main contractors, schools, NHS trusts, care homes
 index.html           all content
 css/styles.css       tokens at top, then base, layout, components
 js/main.js           mobile menu, logo carousel loop, footer year, form guard
-images/              placeholder.svg, hero-placeholder.svg, logo-placeholder.svg, (later) real photos
+images/              hero-sink.jpg (real hero photo), placeholder.svg, hero-placeholder.svg,
+                      logo-placeholder.svg, (later) more real photos
 images/projects/     project photos
 favicon.svg
 CHECKLIST.md         everything the user still has to supply
 README.md            how the user edits text, images, colours, form
 .claude/launch.json  local preview server (python http.server, port 8080)
+.gitignore           excludes Image/ (the user's drop folder for source photos, not the working images/ folder)
 ```
+
+Git: a local repo exists on branch `main`, pushed to **github.com/jbartrum1001-maker/SI-INTERIORS** (public, remote `origin`). Commit and push as changes land unless the user asks to review diffs first.
 
 ## Behaviours worth knowing
 - **Logo carousel** (`js/main.js`): clones the logo `<li>`s until the track covers the viewport plus one full set, then loops by exactly one set (`--logos-shift`) at 50px/s (`SPEED`). Rebuilds on load and resize. It measures with the `.moving` class already applied, so don't remove that before measuring. Reduced-motion and no-JS users get a static wrapping row (no fade).
@@ -52,6 +56,7 @@ README.md            how the user edits text, images, colours, form
 - **Header** on mobile must not overflow: the long placeholder phone text broke it once, so keep the header phone label short.
 - Repeated stand-ins to replace everywhere: `tel:+44XXXXXXXXXX` and `info@example.co.uk`.
 - Find everything unfinished with a search for `[PLACEHOLDER`.
+- **Image conversion**: no `magick`/`cwebp` on this machine. When the user drops a source photo (they use an `Image/` folder for these, gitignored), convert with PowerShell's `System.Drawing` (JPEG output, quality ~80) to hit the size targets in `CHECKLIST.md`, since real WebP export isn't available here. Check dimensions the same way before resizing/cropping guidance.
 
 ## Working process
 - The user is gathering the missing information over time. **Build with placeholders, then work through `CHECKLIST.md` with them item by item**, ticking things off and replacing placeholders as facts arrive.
